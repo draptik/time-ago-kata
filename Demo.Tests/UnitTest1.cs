@@ -28,7 +28,7 @@ namespace Demo.Tests
         [InlineData(oneDay + oneDay, "vor 2 Tagen")]
         [InlineData(oneMonth, "vor einem Monat")]
         [InlineData(oneMonth + oneDay, "vor einem Monat")]
-        [InlineData(oneMonth + oneMonth, "vor 2 Monaten")]
+        [InlineData(oneMonth *3, "vor 3 Monaten")] // fails
         [InlineData(oneYear, "vor einem Jahr")]
         public void TimeAgo_returns_correct_result(int secondsToSubstract, string expected)
         {
@@ -67,9 +67,12 @@ namespace Demo.Tests
             }
             else if (timeSpan <= TimeSpan.FromDays(365))
             {
+                // result = timeSpan.Days > 30
+                //     ? $"vor {timeSpan.Days / 30} Monaten"
+                //     : "vor einem Monat";
                 const string aMonthAgo = "vor einem Monat";
 
-                if (timeSpan.Days > 30)
+                if (timeSpan.TotalDays > 30)
                 {
                     if (timeSpan.Days / 30 == 1)
                     {
@@ -80,7 +83,7 @@ namespace Demo.Tests
                         result = $"vor {timeSpan.Days / 30} Monaten";
                     }
                 }
-                result = aMonthAgo;
+                result = "FOO";
             }
             else
             {
