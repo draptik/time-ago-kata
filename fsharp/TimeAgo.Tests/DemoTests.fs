@@ -1,7 +1,9 @@
 module DemoTests
 
 open FsUnit.Xunit
+open System
 open Xunit
+
 
 [<Fact>]
 let ``My test`` () =
@@ -47,3 +49,11 @@ let doMoreMagic x y =
 [<Fact>]
 let ``Call a function from test`` () =
     doMoreMagic 1 2 |> should equal 3
+
+[<Fact>]
+let ``Using DateTime works with F#`` () =
+    let now = DateTime.Now;
+    let input = now
+
+    now.AddSeconds(10.0)
+    |> should equal (input.AddSeconds(10.0))
