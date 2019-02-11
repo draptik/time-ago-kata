@@ -12,3 +12,11 @@ let timeAgo secondsToSubract =
 // let ``returns 10 seconds ago`` () =
     // timeAgo 10 |> Result.Ok |> should equal true
     // timeAgo 10 |> Result.Ok |> should equal "vor 10 Sekunden"
+
+
+let parseMinutes secs =
+    let day = 60 * 60 * 24
+    if secs > day then
+        Ok secs
+    else
+        Error ""
