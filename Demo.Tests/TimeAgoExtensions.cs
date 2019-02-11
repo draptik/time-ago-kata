@@ -6,13 +6,14 @@ namespace Demo.Tests
     {
         public static string TimeAgo(this DateTime dateTime)
         {
-            string result;
+            var result = string.Empty;
+
             var timeSpan = DateTime.Now.Subtract(dateTime);
+
             if (timeSpan <= TimeSpan.FromSeconds(60))
             {
                 result = $"vor {Math.Floor(timeSpan.TotalSeconds)} Sekunden";
             }
-
             else if (timeSpan <= TimeSpan.FromMinutes(60))
             {
                 result = timeSpan.Minutes > 1
@@ -47,6 +48,7 @@ namespace Demo.Tests
                     ? isSingleYear ? aYearAgo : $"vor {timeSpan.Days / 365} Jahren"
                     : aYearAgo;
             }
+            
             return result;
         }
     }

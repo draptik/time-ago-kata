@@ -12,7 +12,6 @@ namespace Demo.Tests
         private const int oneMonth = oneDay * 30;
         private const int oneYear = oneDay * 365;
 
-
         [Theory]
         [InlineData(10, "vor 10 Sekunden")]
         [InlineData(59, "vor 59 Sekunden")]
