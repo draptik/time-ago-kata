@@ -1,8 +1,9 @@
 using System;
 using FluentAssertions;
 using Xunit;
+using TimeAgo;
 
-namespace Demo.Tests
+namespace TimeAgo.Tests
 {
     public class TimeAgoTests
     {

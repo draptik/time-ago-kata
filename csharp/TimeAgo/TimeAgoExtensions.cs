@@ -1,6 +1,6 @@
 using System;
 
-namespace Demo.Tests
+namespace TimeAgo.Tests
 {
     public static class Ext
     {
